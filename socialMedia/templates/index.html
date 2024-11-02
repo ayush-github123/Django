@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - SocialApp{% endblock %}
+
+{% block content %}
+<div class="left-section">
+    <h3 style="text-align:center;">Trending Topics</h3>
+    <ul class="trending-list">
+        <div class="list-elements"><li>#Topic 1</li></div>
+        <div class="list-elements"><li>#Topic 2</li></div>
+        <div class="list-elements"><li>#Topic 3</li></div>
+        <div class="list-elements"><li>#Topic 4</li></div>
+        <div class="list-elements"><li>#Topic 5</li></div>
+    </ul>
+</div>
+
+<div class="middle-section">
+    <h3>My Posts</h3>
+    <div class="post">
+        <img src="{{ MEDIA_URL }}posts/samp1.jpg" alt="Post Image">
+        <p>Sample post content goes here. 🌟</p>    
+    </div>
+    <div class="post">
+        <img src="https://via.placeholder.com/400x200" alt="Post Image">
+        <p>Another sample post with an image. 📸</p>
+    </div>
+    <div class="post">
+        <img src="https://via.placeholder.com/400x200" alt="Post Image">
+        <p>Yet another sample post with some interesting content. 💬</p>            
+    </div>
+</div>
+
+<div class="right-section">
+    <h3 style="text-align:center;">Suggestions to Follow</h3>
+    <ul class="suggestions-list">
+        <div class='suggestion'>
+            <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+            <li class='suggestionss'>Suggested User 1</li>
+        </div>
+        <div class="suggestion">
+            <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+            <li class='suggestionss'>Suggested User 2</li>
+        </div>
+        <div class="suggestion">
+            <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+            <li class='suggestionss'>Suggested User 3</li>
+        </div>
+        <div class="suggestion">
+            <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+            <li class='suggestionss'>Suggested User 4</li>
+        </div>
+    </ul>
+</div>
+{% endblock %}

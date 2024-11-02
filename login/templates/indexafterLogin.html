@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock title %}
+
+{% block content %}
+  <div class="container text-center my-5">
+    <h1 class="display-4 animate-fade-in">Welcome Back, {{ user.username }}!</h1>
+    <p class="lead mt-3">Thank you for logging in. We're glad to have you here.</p>
+    <p class="mt-4">Feel free to explore the website using the navigation menu above.</p>
+    <div class="mt-5">
+      <a href="/books" class="btn btn-outline-light btn-lg me-3">Browse Books</a>
+      <a href="/contact" class="btn btn-outline-warning btn-lg">Contact Us</a>
+    </div>
+  </div>
+{% endblock content %}

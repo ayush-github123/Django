@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe Webpage{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-5 text-white">Submit your Recipes</h2>
+<div class="card shadow-sm mb-5 ">
+    <div class="card-body">
+        <form method = 'post' action = '/submit'>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="recipeName" class="form-label">Recipe Name</label>
+                <input type="text" class="form-control" id="recipeName" name='recipeName' required>
+            </div>
+            <div class="mb-3">
+                <label for="recipeDesc" class="form-label">Recipe Description</label>
+                <textarea class="form-control" id="recipeDesc" name = 'recipeDesc' rows="3" required></textarea>
+            </div>
+            <fieldset class="mb-3">
+                <legend class="col-form-label">Select Category</legend>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" id="category1" value="appetizer" checked>
+                    <label class="form-check-label" for="category1">Appetizer</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" id="category2" value="main_course">
+                    <label class="form-check-label" for="category2">Main Course</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" id="category3" value="dessert">
+                    <label class="form-check-label" for="category3">Dessert</label>
+                </div>
+            </fieldset>
+            {% if messages %}
+                {% for message in messages %}
+                    <p style='color:green;'>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

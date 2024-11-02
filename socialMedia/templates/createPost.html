@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Post - SocialApp{% endblock %}
+
+{% block content %}
+<main class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" class="form-input" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" class="form-textarea" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" class="form-input">
+        </div>
+        <button type="submit" class="submit-button">Create Post</button>
+    </form>
+</main>
+{% endblock %}

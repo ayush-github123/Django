@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}All Recipes{% endblock %}
+{% block content %}
+<div class="container mt-4 text-white">
+    <h2 class="text-center mb-4">All Recipes</h2>
+    {% if recipes %}
+        <div class="row">
+            {% for recipe in recipes %}
+                <div class="col-12 mb-4">
+                    <div class="card shadow-lg rounded overflow-hidden" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <div class="bg-dark card-body">
+                            <h5 class="card-title text-white">{{ recipe.recipe_name }}</h5>
+                            <p class="card-text text-white">{{ recipe.recipe_description }}</p>
+                            <p class="card-text"><small class="text-light">Category: {{ recipe.recipe_category }}</small></p>
+                            <p class="card-text"><small class="text-light">Added on: {{ recipe.created_at|date:"Y-m-d H:i" }}</small></p>
+
+                            <!-- Delete Button Form -->
+                            <form action="{% url 'delete_recipe' recipe.id %}" method="POST" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

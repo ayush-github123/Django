@@ -1,0 +1,5 @@
+{%load static%}
+
+{% for books in book %}
+<h1><a href="{% url 'books' books %}">Book</a></h1>
+{% endfor %}

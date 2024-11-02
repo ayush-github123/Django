@@ -1,0 +1,78 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} Home - MyShop {% endblock %}
+
+{% block navbar_css %}
+    {{ block.super }}  <!-- Include navbar CSS -->
+{% endblock %}
+
+{% block carousel_css %}
+    {{ block.super }}  <!-- Include carousel CSS -->
+{% endblock %}
+    {%block body%}
+    {%load static%}
+
+    <!-- Carousel Section -->
+     
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Featured+Product+1" alt="Featured Product 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Featured+Product+2" alt="Featured Product 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Featured+Product+3" alt="Featured Product 3">
+            </div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <ol class="carousel-indicators">
+            <li data-slide="0" class="active"></li>
+            <li data-slide="1"></li>
+            <li data-slide="2"></li>
+        </ol>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards-container">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+1" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Short description of Product 1</p>
+            <div class="price">$25.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+2" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Short description of Product 2</p>
+            <div class="price">$45.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+3" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$55.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+4" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$550.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+5" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$155.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+6" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$1050.00</div>
+        </div>
+    </div>
+    {%endblock%}
+

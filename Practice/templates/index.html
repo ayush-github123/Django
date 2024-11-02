@@ -1,0 +1,228 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            /* color: #ffffff; */
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .background-container {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background-image: url('static/book.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(0.7); /* Darken background */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffd700; /* Gold color on hover */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            z-index: 2;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #ff5733; /* Vibrant button color */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c70039; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="navbar">
+            <div class="logo">BookStore.com</div>
+            <div>
+                <a href="">Home</a>
+                <a href="#about">About</a>
+                {% if user.is_authenticated %}
+                    <a href="logout">Logout</a>
+                {%else%}    
+                    <a href="register">Register</a>
+                    <a href="login">Login</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="content">
+            {% if user.is_authenticated %}
+                <h1>Welcome {{username}} to the BookStore</h1>
+            {%else%}
+                <h1>Welcome to the BookStore</h1>
+            {% endif %}
+            <p>A place to explore your curiosity</p>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <h2>The Great Gatsby</h2>
+                <img src="/static/thegreatgabsy.jpeg" alt="The Great Gatsby" style="max-width: 100%; height: auto; display: block; margin:  0 auto;" />
+                <p>Author: F. Scott</p>
+                <p>Price: $15</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>Cervantes</h2>
+                <img src="/static/cervantes.jpeg" alt="cervantes" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: George Orwell</p>
+                <p>Price: $18</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>To Kill Mockingbird</h2>
+                <img src="/static/tokillaMockingBrid.jpeg" alt="To Kill a Mockingbird" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: Harper Lee</p>
+                <p>Price: $20</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>The Catcher in Rye</h2>
+                <img src="/static/thecatcher.jpeg" alt="The Catcher in the Rye" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: J.D. Salinger</p>
+                <p>Price: $22</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>Wuthering Heights</h2>
+                <img src="/static/wutheringheights.jpeg" alt="Wuthering Heights" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: Emily Bronte</p>
+                <p>Price: $25</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>Pride and Prejudice</h2>
+                <img src="/static/pride&prejudice.jpeg" alt="Pride and Prejudice" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: Jane Austen</p>
+                <p>Price: $19</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>War and Peace</h2>
+                <img src="/static/war&peace.jpeg" alt="War and Peace" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: Leo Tolstoy</p>
+                <p>Price: $30</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="card">
+                <h2>Charlotte Bronte</h2>
+                <img src="/static/CharlotteBronte.jpeg" alt="Charlotte Bronte" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+                <p>Author: Charlotte Bronte</p>
+                <p>Price: $24</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for navbar on scroll
+        window.onscroll = function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            }
+        };
+    </script>
+</body>
+</html>

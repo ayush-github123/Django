@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <style>
+        /* Reset some default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #232f3e;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            width: 80%;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .carousel-slides {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            transition: 0.5s;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-indicators li {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #bbb;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-indicators .active {
+            background-color: #232f3e;
+        }
+
+        /* Card Styles */
+        .cards-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .card {
+            width: 30%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    
+
+    .card h3 {
+        margin: 15px 0 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .card .price {
+        font-size: 18px;
+        color: #232f3e;
+        font-weight: bold;
+    }
+
+        .card img {
+            max-width: 100%;
+            height: 200px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            padding: 6px 10px;
+            background-color: #ff9900;
+            border: none;
+            color: white;
+            margin-left: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #e68a00;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="left">
+            <div class="logo">MyShop</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="">About Us</a></li>
+            </ul>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Featured+Product+1" alt="Featured Product 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Featured+Product+2" alt="Featured Product 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Featured+Product+3" alt="Featured Product 3">
+            </div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <ol class="carousel-indicators">
+            <li data-slide="0" class="active"></li>
+            <li data-slide="1"></li>
+            <li data-slide="2"></li>
+        </ol>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards-container">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+1" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Short description of Product 1</p>
+            <div class="price">$25.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+2" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Short description of Product 2</p>
+            <div class="price">$45.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+3" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$55.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+4" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$550.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+5" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$155.00</div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x400?text=Product+6" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Short description of Product 3</p>
+            <div class="price">$1050.00</div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle carousel sliding
+        let slides = document.querySelectorAll('.carousel-slide');
+        let indicators = document.querySelectorAll('.carousel-indicators li');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${(i - index) * 100}%)`;
+            });
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            indicators[index].classList.add('active');
+        }
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                showSlide(index);
+            });
+        });
+
+        // Initial slide setup
+        showSlide(currentIndex);
+    </script>
+
+</body>
+</html>

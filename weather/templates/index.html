@@ -1,0 +1,149 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        /* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Navbar */
+header {
+    background-color: #333;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Search Bar */
+.search-container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#search-box {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+}
+
+#search-btn {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#search-btn:hover {
+    background-color: #555;
+}
+
+/* Weather Card */
+.weather-card {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.weather-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+
+.weather-card p {
+    font-size: 18px;
+    color: black;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <h1 style="text-align: center;">Weather App</h1>
+        <form action="" method = 'post'>
+            {%csrf_token%}
+            <div class="search-container">
+                <input type="text" id="search-box" placeholder="Enter location" name="city">
+                <button id="search-btn" name = 'search'>Search</button>
+            </div>
+        </form>
+        <!-- Weather Card -->
+        <div class="weather-card" id="weather-card" style="text-align: left;">
+            <h4 id="city">City : {{city}}</h4>
+            <h4 id="country Code">Country Code : {{data.city_code}}</h4>
+            <h4 id="Coordinate">Coordinate : {{data.coordinates}}</h4>
+            <h4 id="max_Temp">Maximum Temperature : {{data.max_temp}}</h4>
+            <h4 id="min_Temp">Minimum Temperature : {{data.min_temp}}</h4>
+            <h4 id="temperature">Temprature : {{data.temperature}}</h4>
+            <h4 id="humidity">Humidity : {{data.humidity}}</h4>
+            <h4 id="pressure">Pressure : {{data.pressure}}</h4>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Simple frontend script to manage user input
+
+// Get DOM elements
+        const searchBox = document.getElementById('search-box');
+        const searchBtn = document.getElementById('search-btn');
+        const weatherCard = document.getElementById('weather-card');
+
+        // Add event listener to search button (in case of later backend integration)
+        searchBtn.addEventListener('click', () => {
+            const location = searchBox.value;
+            if (location) {
+                alert(`You searched for: ${location}`);
+                // Future Django integration will handle backend logic
+            } else {
+                alert('Please enter a location.');
+            }
+        });
+
+    </script>
+</body>
+</html>
